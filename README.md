@@ -4,9 +4,9 @@ Parent repository containing all business domain microservices.
 
 ## Services
 
-- **user-service**: User authentication and management (Port 8081, MySQL, JWT)
-- **menu-service**: Menu and food item management (Port 8082, MySQL, GCS)
-- **order-service**: Order processing (Port 8083, MySQL, OpenFeign)
+- **user-service**: User authentication and management (Port 8081, PostgreSQL, JWT)
+- **menu-service**: Menu and food item management (Port 8082, PostgreSQL, GCS)
+- **order-service**: Order processing (Port 8083, PostgreSQL, OpenFeign)
 - **kitchen-service**: Kitchen operations (Port 8084, MongoDB)
 
 ## Architecture
@@ -37,14 +37,14 @@ cd kitchen-service && mvn spring-boot:run
 - Java 25
 - Spring Boot 4.0.3
 - Spring Cloud 2025.1.0
-- MySQL 8.0 (user, menu, order services)
+- PostgreSQL 16 (user, menu, order services)
 - MongoDB 7.0 (kitchen service)
 - Maven (Parent POM)
 
 ## Prerequisites
 
 - Platform services running (config-server, service-registry, api-gateway)
-- MySQL database
+- PostgreSQL database
 - MongoDB database
 
 ## Repository Structure
