@@ -3,10 +3,11 @@ module.exports = {
     // auth proxy server start first
     {
       name: 'cloud-sql-auth-proxy',
-      script:
-        './cloud-sql-proxy mineral-balm-491310-u1:asia-southeast1:cafeteria-db-instance --private-ip',
+      script: './cloud-sql-proxy',
+      args: 'mineral-balm-491310-u1:asia-southeast1:cafeteria-db-instance --private-ip',
       log_file: './logs/cloud-sql-auth-proxy.log',
       instances: 1,
+      autorestart: true,
     },
     {
       name: 'user-service',
