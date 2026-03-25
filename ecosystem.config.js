@@ -4,7 +4,7 @@ module.exports = {
     {
       name: 'cloud-sql-auth-proxy',
       script:
-        './cloud-sql-proxy long-carving-491207-n4:asia-southeast1:cafeteria-db-instance --private-ip',
+        './cloud-sql-proxy mineral-balm-491310-u1:asia-southeast1:cafeteria-db-instance --private-ip',
       log_file: './logs/cloud-sql-auth-proxy.log',
       instances: 1,
     },
