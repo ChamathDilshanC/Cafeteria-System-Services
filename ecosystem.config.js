@@ -32,9 +32,11 @@ module.exports = {
     {
       name: 'kitchen-service',
       script: 'java',
-      // මෙතන තමයි වැදගත්ම දේ - Config Server එක force කරනවා
-      args: '-jar kitchen-service/target/kitchen-service-1.0.0.jar --spring.config.import=configserver:http://config.platform:9000',
-      log_file: './logs/kitchen-service.log',
+      args: '-jar kitchen-service/target/kitchen-service-1.0.0.jar',
+      env: {
+        SPRING_DATA_MONGODB_URI:
+          'mongodb://root:JRTgq5KibyHckge0t5SWLXMgjzdH5IJk6ozSAx7k8pYrwoXp@f2e45088-9d0e-4153-9ea7-e017549f617d.asia-southeast1.firestore.goog:443/cafeteria-firestore-mongo?loadBalanced=true&tls=true&authMechanism=SCRAM-SHA-256&retryWrites=false',
+      },
       instances: 2,
       autorestart: true,
     },
