@@ -1,6 +1,5 @@
 module.exports = {
   apps: [
-    // auth proxy server start first
     {
       name: 'cloud-sql-auth-proxy',
       script: './cloud-sql-proxy',
@@ -11,27 +10,33 @@ module.exports = {
     },
     {
       name: 'user-service',
-      script: 'java -jar user-service/target/user-service-1.0.0.jar',
+      script: 'java',
+      args: '-jar user-service/target/user-service-1.0.0.jar --spring.config.import=configserver:http://config.platform:9000',
       log_file: './logs/user-service.log',
       instances: 2,
     },
     {
       name: 'menu-service',
-      script: 'java -jar menu-service/target/menu-service-1.0.0.jar',
+      script: 'java',
+      args: '-jar menu-service/target/menu-service-1.0.0.jar --spring.config.import=configserver:http://config.platform:9000',
       log_file: './logs/menu-service.log',
       instances: 2,
     },
     {
       name: 'order-service',
-      script: 'java -jar order-service/target/order-service-1.0.0.jar',
+      script: 'java',
+      args: '-jar order-service/target/order-service-1.0.0.jar --spring.config.import=configserver:http://config.platform:9000',
       log_file: './logs/order-service.log',
       instances: 2,
     },
     {
       name: 'kitchen-service',
-      script: 'java -jar kitchen-service/target/kitchen-service-1.0.0.jar',
+      script: 'java',
+      // මෙතන තමයි වැදගත්ම දේ - Config Server එක force කරනවා
+      args: '-jar kitchen-service/target/kitchen-service-1.0.0.jar --spring.config.import=configserver:http://config.platform:9000',
       log_file: './logs/kitchen-service.log',
       instances: 2,
+      autorestart: true,
     },
   ],
 };
