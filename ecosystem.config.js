@@ -32,11 +32,8 @@ module.exports = {
     {
       name: 'kitchen-service',
       script: 'java',
-      args: '-jar kitchen-service/target/kitchen-service-1.0.0.jar --spring.config.import=configserver:http://10.148.0.6:9000',
-      env: {
-        SPRING_DATA_MONGODB_URI:
-          'mongodb://chamath:cCfW7IHKhjqbvCjsq6PqtZnnp6rCtS9nE5WIKFKstCR9ztJd@f2e45088-9d0e-4153-9ea7-e017549f617d.asia-southeast1.firestore.goog:443/cafeteria-firestore-mongo?loadBalanced=true&tls=true&authMechanism=SCRAM-SHA-256&retryWrites=false',
-      },
+      // මෙතන අන්තිමට --spring.data.mongodb.uri එක කෙලින්ම දුන්නා, එතකොට Config Server එක override වෙනවා
+      args: '-jar kitchen-service/target/kitchen-service-1.0.0.jar --spring.config.import=configserver:http://10.148.0.6:9000 --spring.data.mongodb.uri=mongodb://chamath:cCfW7IHKhjqbvCjsq6PqtZnnp6rCtS9nE5WIKFKstCR9ztJd@f2e45088-9d0e-4153-9ea7-e017549f617d.asia-southeast1.firestore.goog:443/cafeteria-firestore-mongo?loadBalanced=true&tls=true&authMechanism=SCRAM-SHA-256&retryWrites=false',
       log_file: './logs/kitchen-service.log',
       instances: 2,
       autorestart: true,
