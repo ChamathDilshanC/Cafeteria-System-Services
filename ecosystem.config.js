@@ -27,7 +27,7 @@ module.exports = {
       script: 'java',
       args: '-jar order-service/target/order-service-1.0.0.jar --spring.config.import=configserver:http://config.platform:9000',
       log_file: './logs/order-service.log',
-      instances: 2,
+      instances: 1,
     },
     {
       name: 'kitchen-service',
