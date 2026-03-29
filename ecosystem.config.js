@@ -3,7 +3,7 @@ module.exports = {
     {
       name: 'cloud-sql-auth-proxy',
       script: './cloud-sql-proxy',
-      args: 'mineral-balm-491310-u1:asia-southeast1:cafeteria-db-instance --private-ip',
+      args: 'sylvan-ocean-491718-p1:asia-southeast1:cafeteria-db-instance --private-ip',
       log_file: './logs/cloud-sql-auth-proxy.log',
       instances: 1,
       autorestart: true,
