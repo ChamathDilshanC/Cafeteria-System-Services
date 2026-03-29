@@ -63,11 +63,9 @@ jobs:
 
       - name: Update the instance template to use the new boot image
         run: |
-          gcloud compute instance-groups managed rolling-action start-update ${{ env.INSTANCE_GROUP_NAME }} \
+          gcloud compute instance-groups managed rolling-action replace ${{ env.INSTANCE_GROUP_NAME }} \
           --region=${{ env.REGION }} \
-          --type=proactive \
           --max-unavailable=0 \
-          --minimal-action=replace \
           --replacement-method=substitute \
           --max-surge=3 \
           --version=template=projects/${{ secrets.GCP_PROJECT_ID }}/regions/${{ env.REGION }}/instanceTemplates/${{ env.INSTANCE_TEMPLATE_NAME }},name=0-1774722886304
